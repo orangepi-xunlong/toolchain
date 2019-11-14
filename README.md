@@ -1,2 +1,2 @@
-# mainline_toolchain
-mainline_toolchain
+
+gcc-linaro-1.13.1-2012.02-x86_64_arm-linux-gnueabi
