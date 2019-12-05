@@ -1,0 +1,216 @@
+manifest_format=1.5
+
+# Note that for ABE, these parameters are not used
+# Component data for gmp
+gmp_url=http://snapshots.linaro.org/components/toolchain/infrastructure
+gmp_filespec=gmp-6.1.2.tar.xz
+gmp_md5sum=f58fa8001d60c4c77595fbbb62b63c1d
+gmp_mingw_only="no"
+gmp_configure="--enable-cxx --enable-fft"
+gmp_staticlink="yes"
+
+# Component data for mpfr
+mpfr_url=http://snapshots.linaro.org/components/toolchain/infrastructure
+mpfr_filespec=mpfr-3.1.5.tar.xz
+mpfr_md5sum=c4ac246cf9795a4491e7766002cd528f
+mpfr_mingw_only="no"
+mpfr_configure="--with-gmp=${local_builds}/destdir/${host}"
+mpfr_staticlink="yes"
+
+# Component data for mpc
+mpc_url=http://snapshots.linaro.org/components/toolchain/infrastructure/
+mpc_filespec=mpc-1.0.3.tar.gz
+mpc_md5sum=d6a1d5f8ddea3abd2cc3e98f58352d26
+mpc_mingw_only="no"
+mpc_configure="--with-gmp=${local_builds}/destdir/${host} --with-mpfr=${local_builds}/destdir/${host}"
+mpc_staticlink="yes"
+
+# Component data for linux
+linux_url=http://snapshots.linaro.org/components/toolchain/infrastructure
+linux_filespec=linux-4.10.3.tar.xz
+linux_md5sum=626292ab8b495e81efe6ee45baf6b817
+linux_mingw_only="no"
+linux_staticlink="yes"
+
+# Component data for dejagnu
+dejagnu_url=http://git-us.linaro.org/git/toolchain
+dejagnu_branch=linaro-local/stable
+dejagnu_revision=21f2ff7c065d7ead6aec3e5ed528ecb0f9eadbac
+dejagnu_filespec=dejagnu.git
+dejagnu_mingw_only="no"
+dejagnu_staticlink="yes"
+
+# Component data for expat
+expat_url=http://snapshots.linaro.org/components/toolchain/infrastructure/
+expat_filespec=expat-2.1.0-1-mingw32-dev.tar.xz
+expat_md5sum=1dae54e2670882843d496692154a0e27
+expat_mingw_only="yes"
+expat_staticlink="yes"
+
+# Component data for python
+python_url=http://snapshots.linaro.org/components/toolchain/infrastructure/
+python_filespec=python-2.7.4-mingw32.tar.xz
+python_md5sum=9b3092eff5508c4802936dfe4f5225ef
+python_mingw_only="yes"
+python_staticlink="yes"
+
+# Component data for libiconv
+libiconv_url=http://snapshots.linaro.org/components/toolchain/infrastructure/
+libiconv_filespec=libiconv-1.14-3-mingw32-dev.tar.xz
+libiconv_md5sum=7ead614fa3a8bc266e70c6fcdf198219
+libiconv_mingw_only="yes"
+libiconv_staticlink="yes"
+
+# Component data for binutils
+binutils_url=http://git-us.linaro.org/git/toolchain
+binutils_branch=users/linaro/binutils-2_28-branch
+binutils_revision=0231dce141801ffcdfef8b7f14cd903a6d3f21ba
+binutils_filespec=binutils-gdb.git
+binutils_mingw_only="no"
+binutils_configure="--enable-lto --enable-plugins --enable-gold --disable-werror CPPFLAGS=-UFORTIFY_SOURCE --with-pkgversion=Linaro_Binutils-2019.02 --disable-gdb --disable-sim --disable-libdecnumber --disable-readline --with-sysroot=${sysroots}"
+binutils_staticlink="yes"
+
+# Component data for gcc
+gcc_url=http://git-us.linaro.org/git/toolchain
+gcc_branch=linaro-7.4-2019.02
+gcc_revision=56ec6f6b99cc167ff0c2f8e1a2eed33b1edc85d4
+gcc_filespec=gcc.git
+gcc_makeflags="MAKEINFOFLAGS=--force"
+gcc_mingw_only="no"
+gcc_configure=
+gcc_mingw_extraconf="--with-libiconv-prefix=${local_builds}/destdir/${host}/usr --with-system-zlib=no"
+gcc_staticlink="no"
+gcc_stage1_flags="--with-mpc=${local_builds}/destdir/${host} --with-mpfr=${local_builds}/destdir/${host} --with-gmp=${local_builds}/destdir/${host} --with-gnu-as --with-gnu-ld --disable-libmudflap --enable-lto --enable-shared --without-included-gettext --enable-nls --with-system-zlib --disable-sjlj-exceptions --enable-gnu-unique-object --enable-linker-build-id --disable-libstdcxx-pch --enable-c99 --enable-clocale=gnu --enable-libstdcxx-debug --enable-long-long --with-cloog=no --with-ppl=no --with-isl=no --disable-multilib --enable-fix-cortex-a53-835769 --enable-fix-cortex-a53-843419 --with-arch=armv8-a --enable-threads=posix --enable-multiarch --enable-libstdcxx-time=yes --enable-gnu-indirect-function --disable-libssp --disable-libquadmath --disable-threads --without-headers --with-newlib --disable-libmudflap --disable-bootstrap --disable-decimal-float --disable-libgomp --disable-libatomic --disable-libsanitizer --disable-plugins --disable-libitm --enable-languages=c --with-sysroot=${local_builds}/sysroot-aarch64-linux-gnu --disable-shared --with-glibc-version=2.18"
+gcc_stage2_flags="--with-mpc=${local_builds}/destdir/${host} --with-mpfr=${local_builds}/destdir/${host} --with-gmp=${local_builds}/destdir/${host} --with-gnu-as --with-gnu-ld --disable-libmudflap --enable-lto --enable-shared --without-included-gettext --enable-nls --with-system-zlib --disable-sjlj-exceptions --enable-gnu-unique-object --enable-linker-build-id --disable-libstdcxx-pch --enable-c99 --enable-clocale=gnu --enable-libstdcxx-debug --enable-long-long --with-cloog=no --with-ppl=no --with-isl=no --disable-multilib --enable-fix-cortex-a53-835769 --enable-fix-cortex-a53-843419 --with-arch=armv8-a --enable-threads=posix --enable-multiarch --enable-libstdcxx-time=yes --enable-gnu-indirect-function --with-build-sysroot=${sysroots} --with-sysroot=${local_builds}/destdir/${host}/aarch64-linux-gnu/libc --enable-checking=release --disable-bootstrap --enable-languages=c,c++,fortran,lto"
+
+# Component data for glibc
+glibc_url=http://git-us.linaro.org/git/toolchain
+glibc_branch=release/2.25/master
+glibc_revision=6b95c49d8e2b0bea8b2edcf13827e37e477fb19e
+glibc_filespec=glibc.git
+glibc_makeflags="PARALLELMFLAGS=-j32"
+glibc_mingw_only="no"
+glibc_configure="--disable-profile --without-gd --enable-obsolete-rpc --with-headers=${sysroots}/usr/include libc_cv_forced_unwind=yes libc_cv_c_cleanup=yes --without-selinux --disable-werror"
+
+# Component data for gdb
+gdb_url=http://git-us.linaro.org/git/toolchain
+gdb_branch=gdb-8.2-branch
+gdb_revision=5ed1741ab59763dfaa4ea5ac9ac5ff928f958ce5
+gdb_filespec=binutils-gdb.git
+gdb_mingw_only="no"
+gdb_configure="--with-gnu-ld --enable-plugins --enable-tui --with-pkgversion=Linaro_GDB-2019.02 --disable-gas --disable-binutils --disable-ld --disable-gold --disable-gprof --with-python=yes"
+gdb_mingw_extraconf="--disable-tui --with-python=${local_snapshots}/python-2.7.4-mingw32 CFLAGS=-I${local_builds}/destdir/${host}/usr/include LDFLAGS=-L${local_builds}/destdir/${host}/usr/lib"
+gdb_staticlink="yes"
+
+# Component data for gdbserver
+gdbserver_url=http://git-us.linaro.org/git/toolchain
+gdbserver_branch=gdb-8.2-branch
+gdbserver_revision=5ed1741ab59763dfaa4ea5ac9ac5ff928f958ce5
+gdbserver_filespec=binutils-gdb.git
+gdbserver_mingw_only="no"
+gdbserver_configure="CPPFLAGS=--sysroot=${sysroots} CFLAGS=--sysroot=${sysroots} CXXFLAGS=--sysroot=${sysroots}"
+gdbserver_staticlink="yes"
+
+
+clibrary=glibc
+target=aarch64-linux-gnu
+manifestid=09370dd7b4c9d40dd5a14e0334775706d8905486
+
+ ##############################################################################
+ # Everything below this line is only for informational purposes for developers
+ ##############################################################################
+
+# Build machine data
+build: linux
+host: x86_64-unknown-linux-gnu
+kernel: 4.15.0-39-generic
+hostname: 112c0128842b
+distribution: trusty
+host_gcc: gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.4) 
+
+# These aren't used in the repeat build. just a sanity check for developers
+build directory: /home/tcwg-buildslave/workspace/tcwg-make-release_1/_build/builds
+sysroot directory: /home/tcwg-buildslave/workspace/tcwg-make-release_1/_build/sysroots/aarch64-linux-gnu
+snapshots directory: /home/tcwg-buildslave/workspace/tcwg-make-release_1/snapshots
+git reference directory: /home/tcwg-buildslave/snapshots-ref
+
+abe_url=https://git-us.linaro.org/toolchain
+abe_branch=branch=
+abe_revision=a09711bff8dc7781dd7192b370bdd630b296d45e
+abe_filespec=abe.git
+abe_configure="--with-local-snapshots=${local_snapshots} --with-git-reference-dir=/home/tcwg-buildslave/snapshots-ref"
+
+--------------------- gcc ----------------------
+commit 56ec6f6b99cc167ff0c2f8e1a2eed33b1edc85d4
+Author: TCWG Automation <linaro-toolchain@lists.linaro.org>
+Date:   Tue Jan 22 16:03:43 2019 +0000
+
+    Make Linaro GCC Release 7.4-2019.02.
+    
+    	gcc/
+    	* LINARO-VERSION: Update.
+
+--------------------- binutils ----------------------
+commit 0231dce141801ffcdfef8b7f14cd903a6d3f21ba
+Author: Tamar Christina <tamar.christina@arm.com>
+Date:   Tue Dec 19 12:05:20 2017 +0000
+
+    Correct disassembly of dot product instructions.
+    
+    Dot products deviate from the normal disassembly rules for lane indexed
+    instruction. Their canonical representation is in the form of:
+    
+    v0.2s, v0.8b, v0.4b[0] instead of v0.2s, v0.8b, v0.b[0] to try to denote
+    that these instructions select 4x 1 byte elements instead of a single 1 byte
+    element.
+    
+    Previously we were disassembling them following the normal rules, this patch
+    corrects the disassembly.
+    
+    gas/
+    
+    	PR gas/22559
+    	* config/tc-aarch64.c (vectype_to_qualifier): Support AARCH64_OPND_QLF_S_4B.
+    	* gas/testsuite/gas/aarch64/dotproduct.d: Update disassembly.
+    
+    include/
+    
+    	PR gas/22559
+    	* aarch64.h (aarch64_opnd_qualifier): Add AARCH64_OPND_QLF_S_4B.
+    
+    opcodes/
+    
+    	PR gas/22559
+    	* aarch64-asm.c (aarch64_ins_reglane): Change AARCH64_OPND_QLF_S_B to
+    	AARCH64_OPND_QLF_S_4B
+    	* aarch64-dis.c (aarch64_ext_reglane): Change AARCH64_OPND_QLF_S_B to
+    	AARCH64_OPND_QLF_S_4B
+    	* aarch64-opc.c (aarch64_opnd_qualifiers): Add 4b variant.
+    	* aarch64-tbl.h (QL_V2DOT): Change S_B to S_4B.
+    
+    Change-Id: Ie80d878ceaeaca281f85583e77e4e367e2a909ea
+
+--------------------- glibc ----------------------
+commit 6b95c49d8e2b0bea8b2edcf13827e37e477fb19e
+Author: Florian Weimer <fw@deneb.enyo.de>
+Date:   Mon Dec 31 22:04:36 2018 +0100
+
+    malloc: Always call memcpy in _int_realloc [BZ #24027]
+    
+    This commit removes the custom memcpy implementation from _int_realloc
+    for small chunk sizes.  The ncopies variable has the wrong type, and
+    an integer wraparound could cause the existing code to copy too few
+    elements (leaving the new memory region mostly uninitialized).
+    Therefore, removing this code fixes bug 24027.
+    
+    (cherry picked from commit b50dd3bc8cbb1efe85399b03d7e6c0310c2ead84)
+
+--------------------- abe ----------------------
+commit a09711bff8dc7781dd7192b370bdd630b296d45e
+Author: Yvan Roux <yvan.roux@linaro.org>
+Date:   Thu Dec 13 11:04:17 2018 +0100
+
+    lib/package.sh: More i386 host detection hardening.
+    
+    Change-Id: I9fed905714f561e1cb2da80a14c544490d113d46
+
