@@ -1,2 +1,3 @@
+## What this repository does?
 
-gcc-linaro-4.9-2015.01-x86_64_aarch64-linux-gnu
+- This repository stores the cross-compilation toolchain used to compile the kernel and uboot
