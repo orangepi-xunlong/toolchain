@@ -1,2 +1,3 @@
+## What this repository does?
 
-gcc-linaro-1.13.1-2012.02-x86_64_arm-linux-gnueabi
+- This repository stores the cross-compilation toolchain used to compile the kernel and uboot
